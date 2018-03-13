@@ -28,6 +28,8 @@ namespace CisWiredPL.Controllers
             var allOrderedTo = (from person in allPeople
                                 orderby person.age descending
                                 select person)
+                                .ThenBy(p => p.lastName)
+                                .ThenBy(p => p.firstName)
                                 .Skip((pagingNo - 1) * 100)
                                 .Take(100);// get pageNo th 100 data and use linq query
 
@@ -42,7 +44,6 @@ namespace CisWiredPL.Controllers
                          where person.gender == "male"
                          && person.eyeColor == "blue"
                          && person.age > 30
-                         orderby person.age descending
                          select person)
                          .Count();
 
@@ -55,6 +56,8 @@ namespace CisWiredPL.Controllers
                               && person.age > 30
                               orderby person.age descending
                               select person)
+                              .ThenBy(p => p.lastName)
+                              .ThenBy(p => p.firstName)
                               .Skip((pagingNo - 1) * 100)
                               .Take(100);// get pageNo th 100 data and use linq query
 

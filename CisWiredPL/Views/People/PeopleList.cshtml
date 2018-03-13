@@ -7,7 +7,7 @@
 <h2>People List (Count = @ViewBag.RecordNumber)</h2>
 
 @*Paging*@
-@for (int i = 1; i < ViewBag.RecordNumber / 100 
+@for (int i = 1; i < ViewBag.RecordNumber / 100
                      + (ViewBag.RecordNumber % 100 == 0 ? 1 : 2); i++)
 {
     if (i == ViewBag.PagingNo)
@@ -16,10 +16,10 @@
     }
     else
     {
-        @Html.ActionLink(" " + i.ToString() + " ", 
-        Request.RequestContext.RouteData.Values["action"].ToString(), 
-        Request.RequestContext.RouteData.Values["controller"].ToString(), 
-        routeValues: new { pagingNo = i }, htmlAttributes: null)
+        @Html.ActionLink(" " + i.ToString() + " ",
+                  Request.RequestContext.RouteData.Values["action"].ToString(),
+                  Request.RequestContext.RouteData.Values["controller"].ToString(),
+                  routeValues: new { pagingNo = i }, htmlAttributes: null)
     }
 }
 
@@ -29,22 +29,19 @@
             #
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.firstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.lastName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.isActive)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lastName) , @Html.DisplayNameFor(model => model.firstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.eyeColor)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.gender)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.eyeColor)
+            @Html.DisplayNameFor(model => model.isActive)
         </th>
         <th></th>
     </tr>
@@ -56,22 +53,19 @@
                 @{RowNo++;} @(@RowNo + (@ViewBag.PagingNo - 1) * 100) @*retrieve row number with paging feature*@
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.firstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.lastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.isActive)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lastName), @Html.DisplayFor(modelItem => item.firstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eyeColor)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.gender)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.eyeColor)
+                @Html.DisplayFor(modelItem => item.isActive)
             </td>
         </tr>
     }
