@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Amar Davaasuren</h1>
+    <p class="lead">I am using standard ASP.NET MVC web framework for retrieving people list. When I see first time the data, I thought that there are over 1000 data. I need a paging. Then I used the paging.<br/><br />
+    I used same View on several Actions. Actions have differences of filter each other.
+    </p>
+    <p>@Html.ActionLink("Retrieve All Data", "GetAll", "People", routeValues: new { pagingNo = 1 }, htmlAttributes: null)</p>
+</div>
+
+<div class="row">
+    
+</div>
