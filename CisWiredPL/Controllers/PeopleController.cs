@@ -41,7 +41,8 @@ namespace CisWiredPL.Controllers
             List<Person> allPeople = Utils.getAllPeople(Server);// retrieve all data from file using using shared static method of Utils class
 
             var count = (from person in allPeople
-                         where person.gender == "male"
+                         where person.gender == "male" 
+                         && person.isActive
                          && person.eyeColor == "blue"
                          && person.age > 30
                          select person)
@@ -52,6 +53,7 @@ namespace CisWiredPL.Controllers
 
             var filteredTo = (from person in allPeople
                               where person.gender == "male"
+                              && person.isActive
                               && person.eyeColor == "blue"
                               && person.age > 30
                               orderby person.age descending
